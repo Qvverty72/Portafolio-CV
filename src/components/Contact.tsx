@@ -10,6 +10,7 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | ''>('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -37,12 +38,15 @@ export default function Contact() {
 
       if (response.ok) {
         setSubmitMessage('Email sent successfully!')
+        setSubmitStatus('success')
         setFormData({ name: '', email: '', message: '' })
       } else {
         setSubmitMessage('Error sending email. Please try again.')
+        setSubmitStatus('error')
       }
     } catch (error) {
       setSubmitMessage('Connection error. Please check your internet and try again.')
+      setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
     }
@@ -168,7 +172,7 @@ export default function Contact() {
             </button>
 
             {submitMessage && (
-              <div className={`text-center py-2 rounded-lg ${submitMessage.includes('✓') ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+              <div className={`text-center py-2 rounded-lg ${submitStatus === 'success' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
                 {submitMessage}
               </div>
             )}
