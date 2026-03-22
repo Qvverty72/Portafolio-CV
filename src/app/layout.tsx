@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Mi Portafolio',
-  description: 'Portafolio de proyectos y experiencia',
+  title: 'Portfolio',
+  description: 'Portfolio of a software developer showcasing projects, skills, and contact information.',
   viewport: 'width=device-width, initial-scale=1',
 }
 
