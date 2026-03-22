@@ -76,7 +76,7 @@ export default function Contact() {
                 Cellphone number
               </p>
               <a
-                href="tel:+1234567890"
+                href="tel:+56964354778"
                 className="text-xl text-white hover:text-blue-400 transition"
               >
                 +569 64354778
