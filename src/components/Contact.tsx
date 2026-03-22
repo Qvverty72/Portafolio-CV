@@ -26,6 +26,7 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitMessage('')
+    setSubmitStatus('')
 
     try {
       const response = await fetch('/api/contact', {
@@ -172,7 +173,7 @@ export default function Contact() {
             </button>
 
             {submitMessage && (
-              <div className={`text-center py-2 rounded-lg ${submitStatus === 'success' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+              <div className={`text-center py-2 rounded-lg ${submitStatus === 'success' ? 'bg-green-500/20 text-green-400' : submitStatus === 'error' ? 'bg-red-500/20 text-red-400' : ''}`}>
                 {submitMessage}
               </div>
             )}
